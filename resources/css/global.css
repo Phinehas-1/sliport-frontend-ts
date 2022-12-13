@@ -1,0 +1,126 @@
+:root {
+  font-size: 4px;
+}
+
+:root {
+  --font-size-body: 4rem;
+  --font-size-form-regular: 3.5rem;
+  --font-size-table-regular: 2.6rem;
+  --container-spacing: 2rem;
+  --font-family-primary: Montserrat;
+  --bgcolor-card-primary: hsl(0, 0%, 90%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: var(--font-size-body);
+  font-family: var(--font-family-primary);
+  line-height: 3ch;
+}
+
+header#main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: black;
+  color: white;
+}
+
+header#main #account-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: calc(var(--container-spacing) * 2);
+  row-gap: calc(var(--container-spacing) * 0.5);
+  justify-self: end;
+  justify-items: center;
+  font-size: calc(var(--font-size-body) * 0.8);
+  height: fit-content;
+}
+
+header#main #account-section > div {
+  height: fit-content;
+}
+
+header#main #account-section > div:nth-child(even) {
+  justify-self: left;
+}
+
+header#main #account-section > div:nth-child(3) {
+  background-color: var(--bgcolor-card-primary);
+  padding: 0 2ch;
+  border-radius: 10px;
+  color: black;
+}
+
+header#main a {
+  color: white;
+}
+
+header#main #app-name {
+  font-size: calc(var(--font-size-body) * 3);
+}
+
+input,
+select {
+  height: 4ch;
+  padding: 0 2ch;
+  border-radius: 5px;
+  font-family: var(--font-family-primary);
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 30ch;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+table {
+  font-size: var(--font-size-table-regular);
+}
+
+td,
+th {
+  padding: .7ch;
+}
+
+th {
+  background-color: hsl(0, 0%, 70%);
+}
+
+th::after {
+  content: attr(data-totals-heading-order);
+  font-size: calc(var(--font-size-table-regular) * .8);
+}
+
+th[data-order="DESC"]::after {
+  content: "  🔻";
+  font-size: calc(var(--font-size-table-regular) * .8);
+}
+
+th:hover {
+  cursor: pointer;
+  background-color: hsl(0, 0%, 60%);
+}
+
+td {
+  text-align: center;
+}
+
+tr > td:nth-child(1),
+tr > th:nth-child(1) {
+  text-align: left;
+}
+
+.container {
+  padding: calc(var(--container-spacing) * 3);
+}

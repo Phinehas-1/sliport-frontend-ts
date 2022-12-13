@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./javascript/events/uiEvents.js" defer></script>
+    <script src="./javascript/data/localStorage.js"></script>
+    <script src="./javascript/data/repository.js" defer></script>
+    <script src="./javascript/data/viewmodel.js" defer></script>
+    <script src="./javascript/events/dataEvents.js" defer></script>
+    <script src="./scripts/Events.js" type="module" defer></script> -->
+    <script src="./srcpack/bundle.js" defer></script>
+</head>
+
+<body>
+    <div id="main-container">
+        <header id="main" class="container">
+            <section id="logo-section">
+                <div id="logo-img"></div>
+                <div id="app-name">Sliport</div>
+            </section>
+            <section id="account-section">
+                <div>Phinehas Enakireru</div>
+                <div>Icon</div>
+                <div>Service Group 1</div>
+                <div><a href="">Logout</a></div>
+            </section>
+        </header>
+        <main id="main" class="container">
+            <section id="reports-metrics-section" class="container">
+                <header>
+                    <h3>Report metrics</h3>
+                </header>
+                <main id="metrics-section-main">
+                    <div id="metrics-pane" class="container">
+                        <div id="metrics-sort-menu">
+                            <div><span>Totals</span><input type="checkbox" name="totals" id="totals-box" checked></div>
+                            <div><span>Strength Index</span> <input type="checkbox" name="strength-index"
+                                    id="strength-index-box"></div>
+                            <div><span>From</span><input type="month" name="from-period" id="from-period"
+                                    value="2022-12"></div>
+                        </div>
+                        <table id="totals-table">
+                            <thead>
+                                <tr>
+                                    <th data-name="publisher">Publisher
+                                    </th>
+                                    <th data-order="ASC" data-name="placement" data-totals-heading-order=" 🔼"
+                                        onclick="getSortedReportForTotalsTable(this)">Placement</th>
+                                    <th data-order="ASC" data-name="videoShowing" data-totals-heading-order=" 🔼"
+                                        onclick="getSortedReportForTotalsTable(this)">Video</th>
+                                    <th data-order="ASC" data-name="hour" data-totals-heading-order=" 🔼"
+                                        onclick="getSortedReportForTotalsTable(this)">
+                                        Hour</th>
+                                    <th data-order="ASC" data-name="returnVisit" data-totals-heading-order=" 🔼"
+                                        onclick="getSortedReportForTotalsTable(this)">Return visit</th>
+                                    <th data-order="ASC" data-name="bibleStudy" data-totals-heading-order=" 🔼"
+                                        onclick="getSortedReportForTotalsTable(this)">Bible study</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </main>
+
+            </section>
+            <section id="enter-publisher-report-section" class="container">
+                <header>
+                    <h3>Enter report</h3>
+                    <p>Enter the monthly report for the selected publisher</p>
+                </header>
+                <form action="" id="enter-publisher-report">
+                    <label for="publisher-names-select">Publisher name</label>
+                    <select name="publisher-name" id="publisher-name-select">
+                    </select>
+                    <label for="month-reporting-input">Month reporting</label>
+                    <input type="month" name="month-reporting" id="month-reporting-input" value="2022-12" />
+                    <label for="placement-input">Placement</label>
+                    <input type="number" name="placement" id="placement-input" value="0" min="0" />
+                    <label for="video-showing-input">Video showing</label>
+                    <input type="number" name="video-showing" id="video-showing-input" value="0" min="0" />
+                    <label for="hour">Hour</label>
+                    <input type="number" name="hour" id="hour-input" value="1" min="1" />
+                    <label for="return-visit-input">Return visit</label>
+                    <input type="number" name="return-visit" id="return-visit-input" value="0" min="0" />
+                    <label for="bible-study-input">Bible study</label>
+                    <input type="number" name="bible-study" id="bible-study-input" value="0" min="0" />
+                    <input type="submit" value="Submit" />
+                </form>
+            </section>
+            <section id="add-publisher-section" class="container">
+                <header>
+                    <h3>Add publisher</h3>
+                    <p>Add a publisher to the existing reporting group</p>
+                </header>
+                <form action="" id="add-publisher-form">
+                    <label for="publisher-name-input">Publisher Name</label>
+                    <input type="text" id="publisher-name-input" name="publisher-name" maxlength="18" />
+                    <input type="submit" value="Add publisher">
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <link rel="stylesheet" href="./resources/css/global.css">
+    <link rel="stylesheet" href="./resources/css/index.css">
+</body>
+
+</html>

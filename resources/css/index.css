@@ -1,0 +1,69 @@
+main#main {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(calc(var(--container-spacing) * 40), max-content)
+  );
+  gap: calc(var(--container-spacing) * 10);
+}
+
+section,
+form {
+  display: grid;
+}
+
+section {
+  height: fit-content;
+  row-gap: calc(var(--container-spacing) * 3);
+}
+
+section#enter-publisher-report-section,
+section#add-publisher-section,
+section#reports-metrics-section {
+  background-color: var(--bgcolor-card-primary);
+  border-radius: 10px;
+}
+main#metrics-section-main {
+  display: grid;
+  overflow-y: hidden;
+}
+
+/* not used at the moment */
+main#metrics-section-main button { 
+  appearance: none;
+  padding: 1.2ch;
+  border: none;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  font-family: var(--font-family-primary);
+}
+/* not used at the moment */
+
+div#metrics-pane {
+  display: grid;
+  row-gap: var(--container-spacing);
+  background-color: hsl(0, 0%, 80%);
+}
+
+section#reports-metrics-section div#metrics-sort-menu {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  gap: 1.5ch;
+  align-items: baseline;
+}
+
+section#reports-metrics-section div#metrics-sort-menu > div {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 1ch;
+  align-items: center;
+}
+
+form#enter-publisher-report,
+form#add-publisher-form {
+  grid-template-columns: max-content;
+  row-gap: var(--container-spacing);
+  font-size: var(--font-size-form-regular);
+  line-height: normal;
+}
