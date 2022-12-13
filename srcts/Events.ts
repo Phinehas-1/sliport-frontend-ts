@@ -25,9 +25,6 @@ setUpEventListener(document.forms[1], 'submit', (e: { preventDefault: () => void
 // save a report on submit of the 'enter-publisher-report' form
 setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    let store = new LocalStorageStore();
-    let repo = new Repository(store);
-
     if (!repo.addReport(document.forms[0])) {
         console.log('Could not save the report.');
         return;
@@ -37,7 +34,5 @@ setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void
 
 // populate the 'publisher-name-select' field of the 'enter-publish-report' form after page reload 
 window.addEventListener('DOMContentLoaded', () => {
-    console.log('Body loaded');
-    let viewModel = new ViewModel();
     viewModel.setUpPublisherFormView(repo.getPublishers());
 })
