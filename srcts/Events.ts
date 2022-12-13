@@ -8,6 +8,7 @@ const setUpEventListener = (element: HTMLElement, event: string, callback: any) 
     elements.push(element);
 }
 
+// add a publisher on submit of the 'add-publisher' form
 setUpEventListener(document.forms[1], 'submit', (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     let store = new LocalStorageStore();
@@ -21,6 +22,7 @@ setUpEventListener(document.forms[1], 'submit', (e: { preventDefault: () => void
 });
 
 
+// save a report on submit of the 'enter-publisher-report' form
 setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     let store = new LocalStorageStore();
