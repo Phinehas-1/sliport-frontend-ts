@@ -48,6 +48,7 @@ export class LocalStorageStore implements DataStore {
             return false;
         }
         this.reports = JSON.parse(this.reports_string ?? "[]");
+        console.log(this.reports);
         this.reports.push(report);
         this.localStorage.setItem("reports", JSON.stringify(this.reports));
         return true;

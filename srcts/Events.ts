@@ -1,10 +1,12 @@
+import { getSortedReportForTotalsTable } from "./UI";
+import { ViewModel } from "./ViewModel";
 import { Repository } from "./Repository";
 import { LocalStorageStore } from "./Storage";
-import { ViewModel } from "./ViewModel";
 
 const elements: HTMLElement[] = [];
 const repo = new Repository(new LocalStorageStore());
 const viewModel = new ViewModel();
+
 
 const setUpEventListener = (element: HTMLElement, event: string, callback: any) => {
     element.addEventListener(event, callback);
@@ -34,5 +36,24 @@ setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void
 
 // populate the 'publisher-name-select' field of the 'enter-publish-report' form after page reload 
 window.addEventListener('DOMContentLoaded', () => {
-    viewModel.setUpPublisherFormView(repo.getPublishers());
+    viewModel.setUpReportFormView(repo.getPublishers());
+    viewModel.setUpReportsTableView(repo.getReports());
 })
+
+document.getElementById('placement_header')?.addEventListener('click', (e) => {
+   getSortedReportForTotalsTable(e.target) 
+});
+document.getElementById('video-showing_header')?.addEventListener('click', (e) => {
+    getSortedReportForTotalsTable(e.target)
+});
+document.getElementById('hour_header')?.addEventListener('click', (e) => {
+    getSortedReportForTotalsTable(e.target)
+});
+document.getElementById('return-visit_header')?.addEventListener('click', (e) => {
+    getSortedReportForTotalsTable(e.target)
+});
+document.getElementById('bible-study_header')?.addEventListener('click', (e) => {
+    getSortedReportForTotalsTable(e.target)
+});
+
+
