@@ -37,6 +37,7 @@ export class LocalStorageStore {
         this.reports = JSON.parse((_a = this.reports_string) !== null && _a !== void 0 ? _a : "[]");
         console.log(this.reports);
         this.reports.push(report);
+        console.log(this.reports);
         this.localStorage.setItem("reports", JSON.stringify(this.reports));
         return true;
     }
