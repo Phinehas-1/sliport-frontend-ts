@@ -1,3 +1,4 @@
+import { Chart } from "../node_modules/chart.js/auto/auto";
 export class ViewModel {
     constructor() {
         this.reportForm = document.forms[0];
@@ -30,6 +31,45 @@ export class ViewModel {
                 tableData.appendChild(value);
                 tableRow.appendChild(tableData);
                 count++;
+            }
+        });
+    }
+    setUpStrengthIndexChartView(reports) {
+        const ctx = document.getElementById('reports-chart');
+        let index = 0;
+        let tempReportsArrayForReordered = [];
+        let filteredReportsArray = reports.map((report) => {
+            return Object.values(report).filter((value, index) => { return index > 1; }).map(value => { return parseInt(value); });
+        });
+        filteredReportsArray[0].forEach(val => {
+            let filteredReportsArrayReorderedByIndex = filteredReportsArray.map(elementArray => {
+                return elementArray[index];
+            });
+            tempReportsArrayForReordered.push(filteredReportsArrayReorderedByIndex);
+            index++;
+        });
+        let sortedReportsDataForChart = tempReportsArrayForReordered.map(val => {
+            return val.reduce((a, b) => a + b);
+        });
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Placement', 'Video', 'Hour', 'Return Visit', 'Bible Study'],
+                datasets: [{
+                        label: 'Strength Index',
+                        data: sortedReportsDataForChart,
+                        borderWidth: 1
+                    }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                animation: {
+                    loop: false
+                }
             }
         });
     }
