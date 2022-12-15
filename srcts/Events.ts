@@ -17,9 +17,11 @@ const setUpEventListener = (element: HTMLElement, event: string, callback: any) 
 setUpEventListener(document.forms[1], 'submit', (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!repo.addPublisher(document.forms[1])) {
+        document.forms[1].reset();
         console.log('Could not save the publisher.');
         return;
     }
+    document.forms[1].reset();
     console.log(`Publisher : ${document.forms[1]['publisher-name'].value} was added.`);
 });
 
@@ -28,9 +30,11 @@ setUpEventListener(document.forms[1], 'submit', (e: { preventDefault: () => void
 setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!repo.addReport(document.forms[0])) {
+        document.forms[0].reset();
         console.log('Could not save the report.');
         return;
     }
+    document.forms[0].reset();
     console.log(`Report for : ${document.forms[0]['publisher-name'].value} was added.`);
 });
 

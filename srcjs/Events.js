@@ -14,18 +14,22 @@ const setUpEventListener = (element, event, callback) => {
 setUpEventListener(document.forms[1], 'submit', (e) => {
     e.preventDefault();
     if (!repo.addPublisher(document.forms[1])) {
+        document.forms[1].reset();
         console.log('Could not save the publisher.');
         return;
     }
+    document.forms[1].reset();
     console.log(`Publisher : ${document.forms[1]['publisher-name'].value} was added.`);
 });
 // save a report on submit of the 'enter-publisher-report' form
 setUpEventListener(document.forms[0], 'submit', (e) => {
     e.preventDefault();
     if (!repo.addReport(document.forms[0])) {
+        document.forms[0].reset();
         console.log('Could not save the report.');
         return;
     }
+    document.forms[0].reset();
     console.log(`Report for : ${document.forms[0]['publisher-name'].value} was added.`);
 });
 // populate the 'publisher-name-select' field of the 'enter-publish-report' form after page reload 
