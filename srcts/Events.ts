@@ -42,6 +42,7 @@ setUpEventListener(document.forms[0], 'submit', (e: { preventDefault: () => void
 window.addEventListener('DOMContentLoaded', () => {
     viewModel.setUpReportFormView(repo.getPublishers());
     viewModel.setUpReportsTableView(repo.getReports());
+    viewModel.setUpStrengthIndexChartView(repo.getReports());
 })
 
 document.getElementById('placement_header')?.addEventListener('click', (e) => {
