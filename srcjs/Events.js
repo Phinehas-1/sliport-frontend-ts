@@ -36,7 +36,6 @@ setUpEventListener(document.forms[0], 'submit', (e) => {
 window.addEventListener('DOMContentLoaded', () => {
     viewModel.setUpReportFormView(repo.getPublishers());
     viewModel.setUpReportsTableView(repo.getReports());
-    viewModel.setUpStrengthIndexChartView(repo.getReports());
 });
 (_a = document.getElementById('placement_header')) === null || _a === void 0 ? void 0 : _a.addEventListener('click', (e) => {
     getSortedReportForTotalsTable(e.target);
@@ -53,3 +52,4 @@ window.addEventListener('DOMContentLoaded', () => {
 (_e = document.getElementById('bible-study_header')) === null || _e === void 0 ? void 0 : _e.addEventListener('click', (e) => {
     getSortedReportForTotalsTable(e.target);
 });
+viewModel.setUpStrengthIndexChartView(repo.getReports());

@@ -51,7 +51,7 @@ export class ViewModel {
         let sortedReportsDataForChart = tempReportsArrayForReordered.map(val => {
             return val.reduce((a, b) => a + b);
         });
-        new Chart(ctx, {
+        let c = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ['Placement', 'Video', 'Hour', 'Return Visit', 'Bible Study'],
@@ -70,7 +70,7 @@ export class ViewModel {
                 animation: {
                     loop: false
                 }
-            }
+            },
         });
     }
 }
